@@ -68,8 +68,6 @@
 //
 
 // @section info
-<<<<<<< HEAD
-=======
 
 #ifdef USE_AUTOMATIC_VERSIONING
   #include "_Version.h"
@@ -85,7 +83,6 @@
 
 #define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
 #define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
->>>>>>> 9495731c575b4cd9e89f446ce46cad7a85e946fd
 
 // Author info of this build printed to the host during boot and M115
 #define STRING_CONFIG_H_AUTHOR "(none, default config)" // Who made the changes.
