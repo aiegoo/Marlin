@@ -7,11 +7,17 @@
 #  - ghpc
 #
 
+<<<<<<< HEAD
+=======
+[[ $# < 2 && $1 != "-h" && $1 != "--help" ]] || { echo "Usage: `basename $0` [1|2]" 1>&2 ; exit 1; }
+
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 MFINFO=$(mfinfo "$@") || exit 1
 IFS=' ' read -a INFO <<< "$MFINFO"
 REPO=${INFO[2]}
 TARG=${INFO[3]}
 CURR=${INFO[5]}
+<<<<<<< HEAD
 
 IND=6
 while [ $IND -lt ${#INFO[@]} ]; do
@@ -24,7 +30,21 @@ while [ $IND -lt ${#INFO[@]} ]; do
 done
 
 [[ $USAGE == 1 ]] && { echo "usage: `basename $0` [1|2|3]" 1>&2 ; exit 1 ; }
+=======
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 [[ $CURR == $TARG && $REPO != "MarlinDocumentation" ]] && { echo "Don't alter the PR Target branch."; exit 1 ; }
 
+<<<<<<< HEAD
 git add . && git commit --amend && git push -f
+=======
+if [[ $CURR == $TARG ]]; then
+  if [[ $REPO == "MarlinDocumentation" ]]; then
+    git rebase -i HEAD~2 && git push -f
+  else
+    echo "Don't alter the PR Target branch."; exit 1
+  fi
+else
+  mfrb "$@" && git push -f
+fi
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790

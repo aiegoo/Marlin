@@ -35,9 +35,13 @@
   #define E0_AUTO_FAN_PIN                     9
 #endif
 
+<<<<<<< HEAD:Marlin/src/pins/ramps/pins_TRIGORILLA_13.h
 #include "pins_RAMPS_13.h"
 
 #undef E1_STEP_PIN
 #undef E1_DIR_PIN
 #undef E1_ENABLE_PIN
 #undef E1_CS_PIN
+=======
+#include "pins_MKS_GEN_13.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_ZRIB_V20.h

@@ -105,6 +105,7 @@
 #define E0_DIR_PIN                            27
 #define E0_ENABLE_PIN                         24
 
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_OMCA_A.h
 #define E1_STEP_PIN                           -1  // 19
 #define E1_DIR_PIN                            -1  // 18
 #define E1_ENABLE_PIN                         24
@@ -112,6 +113,15 @@
 #define E2_STEP_PIN                           -1  // 17
 #define E2_DIR_PIN                            -1  // 16
 #define E2_ENABLE_PIN                         24
+=======
+#define E1_STEP_PIN        -1   // 19
+#define E1_DIR_PIN         -1   // 18
+#define E1_ENABLE_PIN      24
+
+#define E2_STEP_PIN        -1   // 17
+#define E2_DIR_PIN         -1   // 16
+#define E2_ENABLE_PIN      24
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_OMCA_A.h
 
 //
 // Temperature Sensors
@@ -124,7 +134,11 @@
 #define HEATER_0_PIN                           4
 
 #ifndef FAN_PIN
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_OMCA_A.h
   #define FAN_PIN                              3
+=======
+  #define FAN_PIN           3
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_OMCA_A.h
 #endif
 
 //

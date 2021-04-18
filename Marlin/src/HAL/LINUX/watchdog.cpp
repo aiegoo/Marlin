@@ -21,6 +21,7 @@
  */
 #ifdef __PLAT_LINUX__
 
+<<<<<<< HEAD:Marlin/src/HAL/LINUX/watchdog.cpp
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(USE_WATCHDOG)
@@ -33,3 +34,18 @@ void HAL_watchdog_refresh() {}
 #endif
 
 #endif // __PLAT_LINUX__
+=======
+/**
+ * blinkm.h - Control a BlinkM over i2c
+ */
+
+#ifndef _BLINKM_H_
+#define _BLINKM_H_
+
+struct LEDColor;
+typedef LEDColor LEDColor;
+
+void blinkm_set_led_color(const LEDColor &color);
+
+#endif // _BLINKM_H_
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/blinkm.h

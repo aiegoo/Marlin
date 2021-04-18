@@ -2,20 +2,44 @@
  * Portuguese
  *
  * LCD Menu Messages
+<<<<<<< HEAD
  * Please note these are limited to 17 characters!
+=======
+ * See also http://marlinfw.org/docs/development/lcd_language.html
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
  *
  */
 #ifndef LANGUAGE_PT_H
 #define LANGUAGE_PT_H
 
+<<<<<<< HEAD
 #define WELCOME_MSG							MACHINE_NAME " pronto."
+=======
+#define DISPLAY_CHARSET_ISO10646_1
+#define NOT_EXTENDED_ISO10646_1_5X7
+
+#define WELCOME_MSG                         MACHINE_NAME " pronta."
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #define MSG_SD_INSERTED                     "Cartao inserido"
 #define MSG_SD_REMOVED                      "Cartao removido"
 #define MSG_MAIN                            " Menu principal \003"
 #define MSG_AUTOSTART                       "Autostart"
 #define MSG_DISABLE_STEPPERS                " Desactivar motores"
 #define MSG_AUTO_HOME                       "Ir para origem"
+<<<<<<< HEAD
 #define MSG_SET_HOME_OFFSETS                "Def. desvio origem"
+=======
+#define MSG_AUTO_HOME_X                     "Ir para origem X"
+#define MSG_AUTO_HOME_Y                     "Ir para origem Y"
+#define MSG_AUTO_HOME_Z                     "Ir para origem Z"
+#define MSG_TMC_Z_CALIBRATION               "Calibrar Z"
+#define MSG_LEVEL_BED_HOMING                "Indo para origem"
+#define MSG_LEVEL_BED_WAITING               "Click para iniciar"
+#define MSG_LEVEL_BED_NEXT_POINT            "Proximo ponto"
+#define MSG_LEVEL_BED_DONE                  "Pronto !"
+#define MSG_SET_HOME_OFFSETS                "Definir desvio"
+#define MSG_HOME_OFFSETS_APPLIED            "Offsets applied"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #define MSG_SET_ORIGIN                      "Definir origem"
 #define MSG_PREHEAT_PLA                     "Pre-aquecer PLA"
 #define MSG_PREHEAT_PLA0                    " pre-aquecer PLA 1"
@@ -63,6 +87,7 @@
 #define MSG_AUTOTEMP                        "Autotemp:"
 #define MSG_ON                              "On "
 #define MSG_OFF                             "Off"
+<<<<<<< HEAD
 #define MSG_PID_P                           "PID-P: "
 #define MSG_PID_I                           "PID-I: "
 #define MSG_PID_D                           "PID-D: "
@@ -70,6 +95,23 @@
 #define MSG_ACC                             "Acc:"
 #define MSG_VXY_JERK                        "Vxy-jerk: "
 #define MSG_VZ_JERK                         "Vz-jerk"
+=======
+#define MSG_PID_P                           "PID-P"
+#define MSG_PID_I                           "PID-I"
+#define MSG_PID_D                           "PID-D"
+#define MSG_PID_C                           "PID-C"
+#define MSG_ACC                             "Acc"
+#define MSG_JERK                            "Jerk"
+#if IS_KINEMATIC
+  #define MSG_VA_JERK                       "Va-jerk"
+  #define MSG_VB_JERK                       "Vb-jerk"
+  #define MSG_VC_JERK                       "Vc-jerk"
+#else
+  #define MSG_VA_JERK                       "Vx-jerk"
+  #define MSG_VB_JERK                       "Vy-jerk"
+  #define MSG_VC_JERK                       "Vz-jerk"
+#endif
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #define MSG_VE_JERK                         "Ve-jerk"
 #define MSG_VMAX                            " Vmax "
 #define MSG_X                               "x:"
@@ -79,11 +121,32 @@
 #define MSG_VMIN                            "Vmin:"
 #define MSG_VTRAV_MIN                       "VTrav min:"
 #define MSG_AMAX                            "Amax "
+<<<<<<< HEAD
 #define MSG_A_RETRACT                       "A-retract:"
 #define MSG_XSTEPS                          "Xpasso/mm:"
 #define MSG_YSTEPS                          "Ypasso/mm:"
 #define MSG_ZSTEPS                          "Zpasso/mm:"
 #define MSG_ESTEPS                          "Epasso/mm:"
+=======
+#define MSG_A_RETRACT                       "A-retraccao"
+#define MSG_A_TRAVEL                        "A-movimento"
+#define MSG_STEPS_PER_MM                    "Passo/mm"
+#if IS_KINEMATIC
+  #define MSG_ASTEPS                        "A passo/mm"
+  #define MSG_BSTEPS                        "B passo/mm"
+  #define MSG_CSTEPS                        "C passo/mm"
+#else
+  #define MSG_ASTEPS                        "X passo/mm"
+  #define MSG_BSTEPS                        "Y passo/mm"
+  #define MSG_CSTEPS                        "Z passo/mm"
+#endif
+#define MSG_ESTEPS                          "E passo/mm"
+#define MSG_E1STEPS                         "E1 passo/mm"
+#define MSG_E2STEPS                         "E2 passo/mm"
+#define MSG_E3STEPS                         "E3 passo/mm"
+#define MSG_E4STEPS                         "E4 passo/mm"
+#define MSG_E5STEPS                         "E5 passo/mm"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #define MSG_TEMPERATURE                     "Temperatura"
 #define MSG_MOTION                          "Movimento"
 #define MSG_VOLUMETRIC                      "Filamento"
@@ -106,7 +169,6 @@
 #define MSG_NO_CARD                         "Sem cartao SD"
 #define MSG_DWELL                           "Repouso..."
 #define MSG_USERWAIT                        "A espera de ordem"
-#define MSG_RESUMING                        "Retomando impressao"
 #define MSG_PRINT_ABORTED                   "Impressao cancelada"
 #define MSG_NO_MOVE                         "Sem movimento"
 #define MSG_KILLED                          "PARADA DE EMERG."
@@ -128,6 +190,7 @@
 #define MSG_BABYSTEP_X                      "Babystep X"
 #define MSG_BABYSTEP_Y                      "Babystep Y"
 #define MSG_BABYSTEP_Z                      "Babystep Z"
+<<<<<<< HEAD
 #define MSG_ENDSTOP_ABORT                   "Endstop abort"
 
 #define MSG_RECTRACT                        "Retrair"
@@ -136,6 +199,23 @@
 #define MSG_CONTROL_ARROW                   "Controle \x7E"
 #define MSG_RETRACT_ARROW                   "Retrair \x7E"
 #define MSG_STEPPER_RELEASED                "Iniciado."
+=======
+#define MSG_ENDSTOP_ABORT                   "Fim de curso"
+#define MSG_HEATING_FAILED_LCD              "Aquecimento falhou"
+#define MSG_ERR_REDUNDANT_TEMP              "Err: REDUNDANT TEMP"
+#define MSG_THERMAL_RUNAWAY                 "THERMAL RUNAWAY"
+#define MSG_ERR_MAXTEMP                     "Err: T Maxima"
+#define MSG_ERR_MINTEMP                     "Err: T Minima"
+#define MSG_ERR_MAXTEMP_BED                 "Err: T Base Maxima"
+#define MSG_ERR_MINTEMP_BED                 "Err: T Base Minima"
+#define MSG_HEATING                         "Aquecendo..."
+#define MSG_BED_HEATING                     "Aquecendo base.."
+#define MSG_DELTA_CALIBRATE                 "Calibracao Delta"
+#define MSG_DELTA_CALIBRATE_X               "Calibrar X"
+#define MSG_DELTA_CALIBRATE_Y               "Calibrar Y"
+#define MSG_DELTA_CALIBRATE_Z               "Calibrar Z"
+#define MSG_DELTA_CALIBRATE_CENTER          "Calibrar Centro"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 #ifdef DELTA_CALIBRATION_MENU
     #define MSG_DELTA_CALIBRATE             "Calibracao Delta"

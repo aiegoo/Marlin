@@ -33,6 +33,7 @@
  * Schematic: https://bit.ly/2XOnsWb
  */
 
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
 #define BOARD_INFO_NAME "Melzi (Creality)"
 
 // Alter timing for graphical display
@@ -47,6 +48,11 @@
     #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
   #endif
 #endif
+=======
+#define BOARD_NAME "Melzi (Creality)"
+
+#include "pins_MELZI.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_MELZI_CREALITY.h
 
 #include "pins_MELZI.h"
 
@@ -62,6 +68,7 @@
 #undef LCD_PINS_D6
 #undef LCD_PINS_D7
 
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
 #define LCD_SDSS                             31   // Smart Controller SD card reader (rather than the Melzi)
 #define LCD_PINS_RS                          28   // ST9720 CS
 #define LCD_PINS_ENABLE                      17   // ST9720 DAT
@@ -77,11 +84,32 @@
   #if FIL_RUNOUT_PIN == BEEPER_PIN
     #undef BEEPER_PIN
   #endif
+=======
+#define LCD_SDSS           31   // Smart Controller SD card reader (rather than the Melzi)
+#define LCD_PINS_RS        28   // ST9720 CS
+#define LCD_PINS_ENABLE    17   // ST9720 DAT
+#define LCD_PINS_D4        30   // ST9720 CLK
+#define FIL_RUNOUT_PIN     -1   // Uses Beeper/LED Pin Pulled to GND
+
+// Alter timing for graphical display
+#ifndef ST7920_DELAY_1
+  #define ST7920_DELAY_1 DELAY_NS(125)
+#endif
+#ifndef ST7920_DELAY_2
+  #define ST7920_DELAY_2 DELAY_NS(125)
+#endif
+#ifndef ST7920_DELAY_3
+  #define ST7920_DELAY_3 DELAY_NS(125)
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_MELZI_CREALITY.h
 #endif
 
 #if ENABLED(MINIPANEL)
   #undef DOGLCD_CS
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_MELZI_CREALITY.h
   #define DOGLCD_CS LCD_PINS_RS
+=======
+  #define DOGLCD_CS        LCD_PINS_RS
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_MELZI_CREALITY.h
 #endif
 
 /**

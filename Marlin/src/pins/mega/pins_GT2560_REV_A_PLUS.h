@@ -25,10 +25,20 @@
  * Geeetech GT2560 Revision A+ board pin assignments
  */
 
+<<<<<<< HEAD:Marlin/src/pins/mega/pins_GT2560_REV_A_PLUS.h
 #define BOARD_INFO_NAME "GT2560 Rev.A+"
 
 #include "pins_GT2560_REV_A.h"
 
 #if DISABLED(BLTOUCH)
+=======
+#define BOARD_NAME "GT2560 Rev.A+"
+
+#include "pins_GT2560_REV_A.h"
+
+#if ENABLED(BLTOUCH)
+  #define SERVO0_PIN  11
+#else
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_GT2560_REV_A_PLUS.h
   #define SERVO0_PIN  32
 #endif

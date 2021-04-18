@@ -36,9 +36,13 @@
   #define THERMISTOR_NAME "User Parameters"
 
 // Thermcouples
+<<<<<<< HEAD:Marlin/src/lcd/thermistornames.h
 #elif THERMISTOR_ID == -5
   #define THERMISTOR_NAME "MAX31865"
 #elif THERMISTOR_ID == -4
+=======
+#if THERMISTOR_ID == -4
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/thermistornames.h
   #define THERMISTOR_NAME "AD8495"
 #elif THERMISTOR_ID == -3
   #define THERMISTOR_NAME "MAX31855"
@@ -73,11 +77,11 @@
 #elif THERMISTOR_ID == 6
   #define THERMISTOR_NAME "EPCOS (alt)"
 #elif THERMISTOR_ID == 7
-  #define THERMISTOR_NAME "HW 104LAG"
+  #define THERMISTOR_NAME "Honeywell 104LAG"
 #elif THERMISTOR_ID == 71
-  #define THERMISTOR_NAME "HW 104LAF"
+  #define THERMISTOR_NAME "Honeywell 104LAF"
 #elif THERMISTOR_ID == 8
-  #define THERMISTOR_NAME "E3104FXT"
+  #define THERMISTOR_NAME "E3104FHT"
 #elif THERMISTOR_ID == 9
   #define THERMISTOR_NAME "GE AL03006"
 #elif THERMISTOR_ID == 10
@@ -85,13 +89,19 @@
 #elif THERMISTOR_ID == 11
   #define THERMISTOR_NAME "1% beta 3950"
 #elif THERMISTOR_ID == 12
-  #define THERMISTOR_NAME "E3104FXT (alt)"
+  #define THERMISTOR_NAME "Unknown"
 #elif THERMISTOR_ID == 13
+<<<<<<< HEAD:Marlin/src/lcd/thermistornames.h
   #define THERMISTOR_NAME "Hisens 3950"
 #elif THERMISTOR_ID == 15
   #define THERMISTOR_NAME "100k JGAurora A5"
 #elif THERMISTOR_ID == 18
   #define THERMISTOR_NAME "ATC Semitec 204GT-2"
+=======
+  #define THERMISTOR_NAME "Hisens"
+#elif THERMISTOR_ID == 15
+  #define THERMISTOR_NAME "Hisens +"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/thermistornames.h
 #elif THERMISTOR_ID == 20
   #define THERMISTOR_NAME "Pt100 UltiMB 5v"
 #elif THERMISTOR_ID == 21
@@ -100,6 +110,8 @@
   #define THERMISTOR_NAME "Pt100 OverLord"
 #elif THERMISTOR_ID == 60
   #define THERMISTOR_NAME "Makers Tool"
+#elif THERMISTOR_ID == 66
+  #define THERMISTOR_NAME "Makers Tool +"
 #elif THERMISTOR_ID == 70
   #define THERMISTOR_NAME "Hephestos 2"
 #elif THERMISTOR_ID == 75

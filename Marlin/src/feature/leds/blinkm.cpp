@@ -24,7 +24,11 @@
  * blinkm.cpp - Control a BlinkM over i2c
  */
 
+<<<<<<< HEAD:Marlin/src/feature/leds/blinkm.cpp
 #include "../../inc/MarlinConfig.h"
+=======
+#include "MarlinConfig.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/blinkm.cpp
 
 #if ENABLED(BLINKM)
 

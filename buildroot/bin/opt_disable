@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
 # exit on first failure
 set -e
 
@@ -10,4 +11,10 @@ for opt in "$@" ; do
   eval "${SED} -i '/\([[:blank:]]*\)\(\/\/\)*\([[:blank:]]*\)\(#define \b${opt}\b\)/{s//\1\3\/\/\4/;h};\${x;/./{x;q0};x;q9}' Marlin/Configuration.h" ||
   eval "${SED} -i '/\([[:blank:]]*\)\(\/\/\)*\([[:blank:]]*\)\(#define \b${opt}\b\)/{s//\1\3\/\/\4/;h};\${x;/./{x;q0};x;q9}' Marlin/Configuration_adv.h" ||
   (echo "ERROR: opt_disable Can't find ${opt}" >&2 && exit 9)
+=======
+SED=$(which gsed || which sed)
+
+for opt in "$@" ; do
+  eval "${SED} -i 's/\([[:blank:]]*\)\(#define \b${opt}\b\)/\1\/\/\2/g' Marlin/Configuration.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 done

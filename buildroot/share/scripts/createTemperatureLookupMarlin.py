@@ -134,6 +134,7 @@ def main(argv):
     max_temp = int(TMAX if TMAX < up_bound else up_bound)
     temps = list(range(max_temp, TMIN+step, step));
 
+<<<<<<< HEAD
     print("// Thermistor lookup table for Marlin")
     print("// ./createTemperatureLookupMarlin.py --rp=%s --t1=%s:%s --t2=%s:%s --t3=%s:%s --num-temps=%s" % (rp, t1, r1, t2, r2, t3, r3, num_temps))
     print("// Steinhart-Hart Coefficients: a=%.15g, b=%.15g, c=%.15g " % (t.c1, t.c2, t.c3))
@@ -144,6 +145,18 @@ def main(argv):
     for temp in temps:
         adc = t.adc(temp)
         print("    { OV(%7.2f), %4s }%s // v=%.3f\tr=%.3f\tres=%.3f degC/count" % (adc , temp, \
+=======
+    print "// Thermistor lookup table for Marlin"
+    print "// ./createTemperatureLookupMarlin.py --rp=%s --t1=%s:%s --t2=%s:%s --t3=%s:%s --num-temps=%s" % (rp, t1, r1, t2, r2, t3, r3, num_temps)
+    print "// Steinhart-Hart Coefficients: a=%.15g, b=%.15g, c=%.15g " % (t.c1, t.c2, t.c3)
+    print "// Theoretical limits of thermistor: %.2f to %.2f degC" % (low_bound, up_bound)
+    print
+    print "const short temptable[][2] PROGMEM = {"
+
+    for temp in temps:
+        adc = t.adc(temp)
+        print "    { OV(%7.2f), %4s }%s // v=%.3f\tr=%.3f\tres=%.3f degC/count" % (adc , temp, \
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                         ',' if temp != temps[-1] else ' ', \
                         t.voltage(adc), \
                         t.resist( adc), \

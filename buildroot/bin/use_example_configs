@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
 IFS=: read -r PART1 PART2 <<< "$@"
 [ -n "${PART2}" ] && { REPO="$PART1" ; RDIR="${PART2// /%20}" ; } \
                   || { REPO=bugfix-2.0.x   ; RDIR="${PART1// /%20}" ; }
@@ -19,3 +20,12 @@ $TOOL "$EXAMPLES/$RDIR/_Statusscreen.h"     >/dev/null 2>&1 && mv wgot _Statussc
 
 rm -f wgot
 cd - >/dev/null
+=======
+restore_configs
+
+cp Marlin/example_configurations/"$@"/Configuration* Marlin/
+
+if [ -f "Marlin/example_configurations/$@/_Bootscreen.h" ]; then
+  cp "Marlin/example_configurations/$@/_Bootscreen.h" Marlin/
+fi
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790

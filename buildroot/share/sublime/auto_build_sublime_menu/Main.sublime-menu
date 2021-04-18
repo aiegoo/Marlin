@@ -7,60 +7,96 @@
                 "caption": "PIO Build",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py build"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py build"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Clean",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py clean"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py clean"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Upload",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py upload"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  upload"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Upload (traceback)",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py traceback"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  traceback"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Upload using Programmer",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py program"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  program"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Test",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py test"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  test"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Debug",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py debug"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  debug"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             },
             {
                 "caption": "PIO Remote",
                 "command": "webdevshell",
                 "args": {
+<<<<<<< HEAD
                     "command": "python buildroot/share/vscode/auto_build.py remote"
+=======
+                    "command": "python buildroot/share/atom/auto_build.py  remote"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
                 }
             }
         ],
         "id": "AutoBuild",
         "mnemonic": "A"
     }
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790

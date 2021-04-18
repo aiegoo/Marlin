@@ -1,15 +1,23 @@
 {
   "build": {
     "core": "teensy",
+<<<<<<< HEAD
     "extra_flags": "-DTEENSY2PP  -fsingle-precision-constant",
+=======
+    "extra_flags": "-DTEENSY2PP",
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
     "f_cpu": "16000000L",
     "mcu": "at90usb1286"
   },
   "frameworks": [
     "arduino"
   ],
+<<<<<<< HEAD
   "platform": "teensy",
   "name": "Atmel AT90USB1286 based",
+=======
+  "name": "at90usb1286.json",
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
   "upload": {
     "maximum_ram_size": 8192,
     "maximum_size": 122880,

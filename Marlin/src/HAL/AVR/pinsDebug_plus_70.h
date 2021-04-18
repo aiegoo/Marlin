@@ -22,12 +22,27 @@
  * Structures for 2560 family boards that use more than 70 pins
  */
 
+<<<<<<< HEAD:Marlin/src/HAL/AVR/pinsDebug_plus_70.h
 #if MB(BQ_ZUM_MEGA_3D, MINIRAMBO, SCOOVO_X9H, TRIGORILLA_14)
   #undef NUM_DIGITAL_PINS
   #define NUM_DIGITAL_PINS            85
 #elif MB(MIGHTYBOARD_REVE)
   #undef NUM_DIGITAL_PINS
   #define NUM_DIGITAL_PINS            80
+=======
+#ifndef __PINSDEBUG_PLUS_70_H__
+#define __PINSDEBUG_PLUS_70_H__
+
+#undef NUM_DIGITAL_PINS
+#if MB(BQ_ZUM_MEGA_3D)
+  #define NUM_DIGITAL_PINS            85
+#elif MB(MIGHTYBOARD_REVE)
+  #define NUM_DIGITAL_PINS            80
+#elif MB(MINIRAMBO)
+  #define NUM_DIGITAL_PINS            85
+#elif MB(SCOOVO_X9H)
+  #define NUM_DIGITAL_PINS            85
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pinsDebug_plus_70.h
 #endif
 
 #define PA 1

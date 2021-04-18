@@ -61,11 +61,16 @@ inline void incremental_WLSF(struct linear_fit_data *lsf, const float &x, const 
   lsf->xzbar += wx * z;
   lsf->yzbar += wy * z;
   lsf->N     += w;
+<<<<<<< HEAD:Marlin/src/libs/least_squares_fit.h
   lsf->max_absx = _MAX(ABS(wx), lsf->max_absx);
   lsf->max_absy = _MAX(ABS(wy), lsf->max_absy);
 }
 inline void incremental_WLSF(struct linear_fit_data *lsf, const xy_pos_t &pos, const float &z, const float &w) {
   incremental_WLSF(lsf, pos.x, pos.y, z, w);
+=======
+  lsf->max_absx = MAX(ABS(w * x), lsf->max_absx);
+  lsf->max_absy = MAX(ABS(w * y), lsf->max_absy);
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/least_squares_fit.h
 }
 
 inline void incremental_LSF(struct linear_fit_data *lsf, const float &x, const float &y, const float &z) {
@@ -78,8 +83,13 @@ inline void incremental_LSF(struct linear_fit_data *lsf, const float &x, const f
   lsf->xybar += x * y;
   lsf->xzbar += x * z;
   lsf->yzbar += y * z;
+<<<<<<< HEAD:Marlin/src/libs/least_squares_fit.h
   lsf->max_absx = _MAX(ABS(x), lsf->max_absx);
   lsf->max_absy = _MAX(ABS(y), lsf->max_absy);
+=======
+  lsf->max_absx = MAX(ABS(x), lsf->max_absx);
+  lsf->max_absy = MAX(ABS(y), lsf->max_absy);
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/least_squares_fit.h
   lsf->N += 1.0;
 }
 inline void incremental_LSF(struct linear_fit_data *lsf, const xy_pos_t &pos, const float &z) {

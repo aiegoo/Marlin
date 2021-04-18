@@ -120,7 +120,11 @@ static void PCA9632_WriteAllRegisters(const byte addr, const byte regadd, const 
   }
 #endif
 
+<<<<<<< HEAD:Marlin/src/feature/leds/pca9632.cpp
 void PCA9632_set_led_color(const LEDColor &color) {
+=======
+void pca9632_set_led_color(const LEDColor &color) {
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pca9632.cpp
   Wire.begin();
   if (!PCA_init) {
     PCA_init = 1;

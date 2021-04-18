@@ -21,15 +21,27 @@
  */
 #pragma once
 
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
 #include "../libs/stopwatch.h"
 #include "../libs/duration_t.h"
 #include "../inc/MarlinConfig.h"
+=======
+#ifndef PRINTCOUNTER_H
+#define PRINTCOUNTER_H
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
 // Print debug messages with M111 S2
 //#define DEBUG_PRINTCOUNTER
 
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
 // Round up I2C / SPI address to next page boundary (assuming 32 byte pages)
 #define STATS_EEPROM_ADDRESS TERN(USE_WIRED_EEPROM, 0x40, 0x32)
+=======
+#include "macros.h"
+#include "language.h"
+#include "stopwatch.h"
+#include <avr/eeprom.h>
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
 struct printStatistics {    // 16 bytes
   //const uint8_t magic;    // Magic header, it will always be 0x16
@@ -38,6 +50,7 @@ struct printStatistics {    // 16 bytes
   uint32_t printTime;       // Accumulated printing time
   uint32_t longestPrint;    // Longest successful print job
   float    filamentUsed;    // Accumulated filament consumed in mm
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
   #if SERVICE_INTERVAL_1 > 0
     uint32_t nextService1;  // Service intervals (or placeholders)
   #endif
@@ -47,16 +60,25 @@ struct printStatistics {    // 16 bytes
   #if SERVICE_INTERVAL_3 > 0
     uint32_t nextService3;
   #endif
+=======
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 };
 
 class PrintCounter: public Stopwatch {
   private:
     typedef Stopwatch super;
 
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
     #if EITHER(USE_WIRED_EEPROM, CPU_32_BIT)
       typedef uint32_t eeprom_address_t;
     #else
       typedef uint16_t eeprom_address_t;
+=======
+    #if ENABLED(I2C_EEPROM) || ENABLED(SPI_EEPROM)
+      typedef uint32_t promdress;
+    #else
+      typedef uint16_t promdress;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
     #endif
 
     static printStatistics data;
@@ -65,7 +87,11 @@ class PrintCounter: public Stopwatch {
      * @brief EEPROM address
      * @details Defines the start offset address where the data is stored.
      */
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
     static const eeprom_address_t address;
+=======
+    static const promdress address;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
     /**
      * @brief Interval in seconds between counter updates
@@ -75,7 +101,11 @@ class PrintCounter: public Stopwatch {
      * @note The max value for this option is 60(s), otherwise integer
      * overflow will happen.
      */
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
     static constexpr uint16_t updateInterval = 10;
+=======
+    static const uint16_t updateInterval;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
     /**
      * @brief Interval in seconds between EEPROM saves
@@ -83,7 +113,11 @@ class PrintCounter: public Stopwatch {
      * EEPROM save cycle, the development team recommends to set this value
      * no lower than 3600 secs (1 hour).
      */
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
     static constexpr uint16_t saveInterval = 3600;
+=======
+    static const uint16_t saveInterval;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
     /**
      * @brief Timestamp of the last call to deltaDuration()
@@ -178,11 +212,14 @@ class PrintCounter: public Stopwatch {
     static bool start();
     static bool stop();
     static void reset();
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
 
     #if HAS_SERVICE_INTERVALS
       static void resetServiceInterval(const int index);
       static bool needsService(const int index);
     #endif
+=======
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h
 
     #if ENABLED(DEBUG_PRINTCOUNTER)
 
@@ -201,3 +238,8 @@ class PrintCounter: public Stopwatch {
 #else
   extern Stopwatch print_job_timer;
 #endif
+<<<<<<< HEAD:Marlin/src/module/printcounter.h
+=======
+
+#endif // PRINTCOUNTER_H
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/printcounter.h

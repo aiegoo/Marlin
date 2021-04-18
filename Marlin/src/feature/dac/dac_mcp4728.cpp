@@ -30,15 +30,26 @@
  * https://forum.arduino.cc/index.php/topic,51842.0.html
  */
 
+<<<<<<< HEAD:Marlin/src/feature/dac/dac_mcp4728.cpp
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(HAS_MOTOR_CURRENT_DAC)
 
 #include "dac_mcp4728.h"
+=======
+#include "MarlinConfig.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/dac_mcp4728.cpp
 
 MCP4728 mcp4728;
 
+<<<<<<< HEAD:Marlin/src/feature/dac/dac_mcp4728.cpp
 xyze_uint_t dac_values;
+=======
+#include "dac_mcp4728.h"
+#include "enum.h"
+
+uint16_t mcp4728_values[XYZE];
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/dac_mcp4728.cpp
 
 /**
  * Begin I2C, get current values (input register and eeprom) of mcp4728

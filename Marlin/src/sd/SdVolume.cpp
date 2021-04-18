@@ -26,15 +26,22 @@
  *
  * This file is part of the Arduino Sd2Card Library
  */
+<<<<<<< HEAD:Marlin/src/sd/SdVolume.cpp
 
 #include "../inc/MarlinConfig.h"
+=======
+#include "MarlinConfig.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/SdVolume.cpp
 
 #if ENABLED(SDSUPPORT)
 
 #include "SdVolume.h"
 
+<<<<<<< HEAD:Marlin/src/sd/SdVolume.cpp
 #include "../MarlinCore.h"
 
+=======
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/SdVolume.cpp
 #if !USE_MULTIPLE_CARDS
   // raw block cache
   uint32_t SdVolume::cacheBlockNumber_;  // current block number
@@ -119,6 +126,7 @@ bool SdVolume::allocContiguous(uint32_t count, uint32_t* curCluster) {
 }
 
 bool SdVolume::cacheFlush() {
+<<<<<<< HEAD:Marlin/src/sd/SdVolume.cpp
   #if DISABLED(SDCARD_READONLY)
     if (cacheDirty_) {
       if (!sdCard_->writeBlock(cacheBlockNumber_, cacheBuffer_.data))
@@ -131,6 +139,17 @@ bool SdVolume::cacheFlush() {
         cacheMirrorBlock_ = 0;
       }
       cacheDirty_ = 0;
+=======
+  if (cacheDirty_) {
+    if (!sdCard_->writeBlock(cacheBlockNumber_, cacheBuffer_.data))
+      return false;
+
+    // mirror FAT tables
+    if (cacheMirrorBlock_) {
+      if (!sdCard_->writeBlock(cacheMirrorBlock_, cacheBuffer_.data))
+        return false;
+      cacheMirrorBlock_ = 0;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/SdVolume.cpp
     }
   #endif
   return true;

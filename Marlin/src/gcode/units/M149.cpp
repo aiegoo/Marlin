@@ -20,9 +20,21 @@
  *
  */
 
+<<<<<<< HEAD:Marlin/src/gcode/units/M149.cpp
 #include "../../inc/MarlinConfig.h"
 
 #if ENABLED(TEMPERATURE_UNITS_SUPPORT)
+=======
+/**
+ * Polish
+ *
+ * LCD Menu Messages
+ * See also http://marlinfw.org/docs/development/lcd_language.html
+ *
+ */
+#ifndef LANGUAGE_PL_H
+#define LANGUAGE_PL_H
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/language_pl.h
 
 #include "../gcode.h"
 

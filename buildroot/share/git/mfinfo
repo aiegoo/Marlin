@@ -6,11 +6,22 @@
 #
 #   - Remote (upstream) Org name (MarlinFirmware)
 #   - Remote (origin) Org name (your Github username)
+<<<<<<< HEAD
 #   - Repo Name (Marlin, MarlinDocumentation)
 #   - PR Target branch (bugfix-1.1.x, bugfix-2.0.x, dev-2.1.x, etc.)
+=======
+#   - Repo Name (Marlin, MarlinDev, MarlinDocumentation)
+#   - PR Target branch (bugfix-1.1.x, bugfix-2.0.x, or master)
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #   - Branch Arg (the branch argument or current branch)
 #   - Current Branch
 #
+
+usage() {
+  echo "Usage: `basename $0` [1|2] [branch]" 1>&2
+}
+
+[[ $# < 3 && $1 != "-h" && $1 != "--help" ]] || { usage; exit 1; }
 
 CURR=$(git branch 2>/dev/null | grep ^* | sed 's/\* //g')
 [[ -z $CURR ]] && { echo "No git repository here!" 1>&2 ; exit 1; }
@@ -49,13 +60,38 @@ while [[ $# -gt 0 ]]; do
 done
 
 case "$REPO" in
+<<<<<<< HEAD
   Marlin              ) TARG=bugfix-2.0.x ; [[ $INDEX == 1 ]] && TARG=bugfix-1.1.x ; [[ $INDEX == 3 ]] && TARG=dev-2.1.x ;;
   Configurations      ) TARG=import-2.0.x ;;
+=======
+  Marlin              ) TARG=bugfix-1.1.x ;
+                        [[ $# > 0 ]] && [[ $1 == 2 ]] && TARG=bugfix-2.0.x
+                        ;;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
   MarlinDocumentation ) TARG=master ;;
 esac
 
 [[ $BRANCH =~ ^[123]$ ]] && USAGE=1
 
+<<<<<<< HEAD
 [[ $USAGE == 1 ]] && { echo "usage: `basename $0` [1|2|3] [branch]" 1>&2 ; exit 1 ; }
+=======
+# BRANCH can be given as the last argument
+case "$#" in
+  0 ) BRANCH=$CURR ;;
+  1 )
+    case "$1" in
+      1|2) BRANCH=$CURR ;;
+      *) BRANCH=$1 ;;
+    esac
+    ;;
+  2 )
+    case "$1" in
+      1|2) BRANCH=$2 ;;
+      *) usage ; exit 1 ;;
+    esac
+    ;;
+esac
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 echo "$ORG $FORK $REPO $TARG $BRANCH $CURR $MORE"

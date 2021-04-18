@@ -18,7 +18,11 @@ The following scripts can be used on any system with a GNU environment to speed 
 
 File|Description
 ----|-----------
+<<<<<<< HEAD
 mfadd&nbsp;[user]|Add and Fetch Remote - Add and fetch another user's Marlin fork. Optionally, check out one of their branches.
+=======
+mfadd&nbsp;[user]|Add and Fetch Remote - Add another Github user's fork of Marlin as a remote, then fetch it. Optionally, check out one of their branches.
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 mfinit|Init Working Copy - Create a remote named '`upstream`' (for use by the other scripts) pointing to the '`MarlinFirmware`' fork. This only needs to be used once. Newer versions of Github Desktop may create `upstream` on your behalf.
 
 #### Branches

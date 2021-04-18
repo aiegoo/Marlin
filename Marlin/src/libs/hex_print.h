@@ -21,6 +21,12 @@
  */
 #pragma once
 
+<<<<<<< HEAD:Marlin/src/libs/hex_print.h
+=======
+#ifndef HEX_PRINT_ROUTINES_H
+#define HEX_PRINT_ROUTINES_H
+
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/hex_print_routines.h
 #include <stdint.h>
 
 //
@@ -38,4 +44,9 @@ void print_hex_nybble(const uint8_t n);
 void print_hex_byte(const uint8_t b);
 void print_hex_word(const uint16_t w);
 void print_hex_address(const void * const w);
+<<<<<<< HEAD:Marlin/src/libs/hex_print.h
 void print_hex_long(const uint32_t w, const char delimiter);
+=======
+
+#endif // HEX_PRINT_ROUTINES_H
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/hex_print_routines.h

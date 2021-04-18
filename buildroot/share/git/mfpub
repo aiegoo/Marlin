@@ -30,6 +30,7 @@ if [[ $BRANCH == "gh-pages" ]]; then
   exit
 fi
 
+<<<<<<< HEAD
 # Check out the named branch (or stay in current)
 
 if [[ $BRANCH != $CURR ]]; then
@@ -37,6 +38,12 @@ if [[ $BRANCH != $CURR ]]; then
   [[ $(git stash) != "No local "* ]] && HAS_STASH=1
   git checkout $BRANCH
 fi
+=======
+echo "Stashing any changes to files..."
+echo "Don't forget to update and push 'master'!"
+# GOJF Card
+[[ $(git stash) != "No local "* ]] && HAS_STASH=1
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 COMMIT=$( git log --format="%H" -n 1 )
 
@@ -61,6 +68,7 @@ if [[ $BRANCH == $TARG ]]; then
   # Don't lose upstream changes!
   git fetch upstream
 
+<<<<<<< HEAD
   # Rebase onto latest master
   if git rebase upstream/$TARG; then
 
@@ -72,6 +80,22 @@ if [[ $BRANCH == $TARG ]]; then
     echo
     echo -n "Pushing to upstream/$TARG... "
     git push upstream HEAD:$TARG
+=======
+  # Don't lose upstream changes!
+  git fetch upstream
+
+  # Rebase onto latest master
+  if git rebase upstream/master; then
+
+    # Allow working directly with the main fork
+    echo
+    echo -n "Pushing to origin/master... "
+    git push -f origin
+
+    echo
+    echo -n "Pushing to upstream/master... "
+    git push -f upstream
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
   else
 
@@ -135,4 +159,10 @@ git push -f upstream | {
 rm -rf ${TMPFOLDER}
 
 # Go back to the branch we started from
+<<<<<<< HEAD
 git checkout $CURR && [[ $HAS_STASH == 1 ]] && git stash pop
+=======
+git checkout $BRANCH
+
+[[ $HAS_STASH == 1 ]] && git stash pop
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790

@@ -107,6 +107,7 @@
 #define E0_DIR_PIN                            21
 #define E0_ENABLE_PIN                         10
 
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_OMCA.h
 #define E1_STEP_PIN                           -1  // 21
 #define E1_DIR_PIN                            -1  // 20
 #define E1_ENABLE_PIN                         -1  // 19
@@ -114,6 +115,15 @@
 #define E2_STEP_PIN                           -1  // 21
 #define E2_DIR_PIN                            -1  // 20
 #define E2_ENABLE_PIN                         -1  // 18
+=======
+#define E1_STEP_PIN        -1   // 21
+#define E1_DIR_PIN         -1   // 20
+#define E1_ENABLE_PIN      -1   // 19
+
+#define E2_STEP_PIN        -1   // 21
+#define E2_DIR_PIN         -1   // 20
+#define E2_ENABLE_PIN      -1   // 18
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_OMCA.h
 
 //
 // Temperature Sensors
@@ -125,11 +135,19 @@
 //
 // Heaters / Fans
 //
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_OMCA.h
 #define HEATER_0_PIN                           3  // DONE PWM on RIGHT connector
 #define HEATER_BED_PIN                         4
 
 #ifndef FAN_PIN
   #define FAN_PIN                             14  // PWM on MIDDLE connector
+=======
+#define HEATER_0_PIN        3   // DONE PWM on RIGHT connector
+#define HEATER_BED_PIN      4
+
+#ifndef FAN_PIN
+  #define FAN_PIN          14   // PWM on MIDDLE connector
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_OMCA.h
 #endif
 
 //
@@ -146,4 +164,8 @@
 #define __GS                                  18
 #define __GD                                  13
 
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_OMCA.h
 #define UNUSED_PWM                            14  // PWM on LEFT connector
+=======
+#define UNUSED_PWM         14   // PWM on LEFT connector
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_OMCA.h

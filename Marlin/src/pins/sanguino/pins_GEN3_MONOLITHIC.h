@@ -65,6 +65,7 @@
 //
 // Steppers
 //
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_GEN3_MONOLITHIC.h
 #define X_STEP_PIN                            15
 #define X_DIR_PIN                             18
 #define X_ENABLE_PIN                          24  // actually uses Y_enable_pin
@@ -72,6 +73,15 @@
 #define Y_STEP_PIN                            23
 #define Y_DIR_PIN                             22
 #define Y_ENABLE_PIN                          24  // shared with X_enable_pin
+=======
+#define X_STEP_PIN         15
+#define X_DIR_PIN          18
+#define X_ENABLE_PIN       24   // actually uses Y_enable_pin
+
+#define Y_STEP_PIN         23
+#define Y_DIR_PIN          22
+#define Y_ENABLE_PIN       24   // shared with X_enable_pin
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_GEN3_MONOLITHIC.h
 
 #define Z_STEP_PIN                            27
 #define Z_DIR_PIN                             28
@@ -94,6 +104,10 @@
 //
 // Misc. Functions
 //
+<<<<<<< HEAD:Marlin/src/pins/sanguino/pins_GEN3_MONOLITHIC.h
 #define PS_ON_PIN                             14  // Alex, does this work on the card?
+=======
+#define PS_ON_PIN          14   // Alex, does this work on the card?
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pins_GEN3_MONOLITHIC.h
 
 // Alex extras from Gen3+

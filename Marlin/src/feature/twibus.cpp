@@ -20,13 +20,18 @@
  *
  */
 
+<<<<<<< HEAD:Marlin/src/feature/twibus.cpp
 #include "../inc/MarlinConfig.h"
+=======
+#include "MarlinConfig.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/twibus.cpp
 
 #if ENABLED(EXPERIMENTAL_I2CBUS)
 
 #include "twibus.h"
 
 #include <Wire.h>
+#include "Marlin.h"
 
 TWIBus::TWIBus() {
   #if I2C_SLAVE_ADDRESS == 0
@@ -52,6 +57,7 @@ void TWIBus::address(const uint8_t adr) {
   debug(PSTR("address"), adr);
 }
 
+<<<<<<< HEAD:Marlin/src/feature/twibus.cpp
 void TWIBus::addbyte(const char c) {
   if (buffer_s >= COUNT(buffer)) return;
   buffer[buffer_s++] = c;
@@ -61,6 +67,21 @@ void TWIBus::addbyte(const char c) {
 void TWIBus::addbytes(char src[], uint8_t bytes) {
   debug(PSTR("addbytes"), bytes);
   while (bytes--) addbyte(*src++);
+=======
+void TWIBus::addbyte(const byte c) {
+  if (this->buffer_s >= COUNT(this->buffer)) return;
+  this->buffer[this->buffer_s++] = c;
+  #if ENABLED(DEBUG_TWIBUS)
+    debug(PSTR("addbyte"), c);
+  #endif
+}
+
+void TWIBus::addbytes(byte src[], uint8_t bytes) {
+  #if ENABLED(DEBUG_TWIBUS)
+    debug(PSTR("addbytes"), bytes);
+  #endif
+  while (bytes--) this->addbyte(*src++);
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/twibus.cpp
 }
 
 void TWIBus::addstring(char str[]) {
@@ -119,8 +140,13 @@ void TWIBus::relay(const uint8_t bytes) {
     echodata(bytes, PSTR("i2c-reply"), addr);
 }
 
+<<<<<<< HEAD:Marlin/src/feature/twibus.cpp
 uint8_t TWIBus::capture(char *dst, const uint8_t bytes) {
   reset();
+=======
+uint8_t TWIBus::capture(byte *dst, const uint8_t bytes) {
+  this->reset();
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/twibus.cpp
   uint8_t count = 0;
   while (count < bytes && Wire.available())
     dst[count++] = Wire.read();

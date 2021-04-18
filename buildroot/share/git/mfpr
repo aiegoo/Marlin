@@ -5,7 +5,11 @@
 # Make a PR against bugfix-1.1.x or bugfix-2.0.x
 #
 
+<<<<<<< HEAD
 [[ $# < 2 && $1 != "-h" && $1 != "--help" ]] || { echo "usage: `basename $0` [1|2|3] [branch]" 1>&2 ; exit 1; }
+=======
+[[ $# < 2 && $1 != "-h" && $1 != "--help" ]] || { echo "Usage: `basename $0` [branch]" 1>&2 ; exit 1; }
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 MFINFO=$(mfinfo "$@") || exit 1
 IFS=' ' read -a INFO <<< "$MFINFO"

@@ -26,10 +26,20 @@
  * Written by Robert Mendon Feb 2017.
  */
 
+<<<<<<< HEAD:Marlin/src/feature/leds/pca9632.h
 struct LEDColor;
 typedef LEDColor LEDColor;
 
 void PCA9632_set_led_color(const LEDColor &color);
+=======
+#ifndef __PCA9632_H__
+#define __PCA9632_H__
+
+struct LEDColor;
+typedef LEDColor LEDColor;
+
+void pca9632_set_led_color(const LEDColor &color);
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/pca9632.h
 
 #if ENABLED(PCA9632_BUZZER)
   #include <stdint.h>

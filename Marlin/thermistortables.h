@@ -4,8 +4,23 @@
 #include "Marlin.h"
 
 #define OVERSAMPLENR 16
+#define OV(N) int16_t((N)*(OVERSAMPLENR))
 
+<<<<<<< HEAD
 #if (THERMISTORHEATER_0 == 1) || (THERMISTORHEATER_1 == 1)  || (THERMISTORHEATER_2 == 1) || (THERMISTORBED == 1) //100k bed thermistor
+=======
+#define ANY_THERMISTOR_IS(n) (THERMISTORHEATER_0 == n || THERMISTORHEATER_1 == n || THERMISTORHEATER_2 == n || THERMISTORHEATER_3 == n || THERMISTORHEATER_4 == n || THERMISTORBED == n || THERMISTORCHAMBER == n)
+
+// Pt1000 and Pt100 handling
+//
+// Rt=R0*(1+a*T+b*T*T) [for T>0]
+// a=3.9083E-3, b=-5.775E-7
+#define PtA 3.9083E-3
+#define PtB -5.775E-7
+#define PtRt(T,R0) ((R0)*(1.0+(PtA)*(T)+(PtB)*(T)*(T)))
+#define PtAdVal(T,R0,Rup) (short)(1024/(Rup/PtRt(T,R0)+1))
+#define PtLine(T,R0,Rup) { OV(PtAdVal(T,R0,Rup)), T },
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 const short temptable_1[][2] PROGMEM = {
 {       23*OVERSAMPLENR ,       300     },
@@ -168,6 +183,7 @@ const short temptable_4[][2] PROGMEM = {
    {1008*OVERSAMPLENR, -35}
 };
 #endif
+<<<<<<< HEAD
 
 #if (THERMISTORHEATER_0 == 5) || (THERMISTORHEATER_1 == 5) || (THERMISTORHEATER_2 == 5) || (THERMISTORBED == 5) //100k ParCan thermistor (104GT-2)
 const short temptable_5[][2] PROGMEM = {
@@ -207,6 +223,13 @@ const short temptable_5[][2] PROGMEM = {
    {1000*OVERSAMPLENR, 10},
    {1010*OVERSAMPLENR, 0}
 };
+=======
+#if ANY_THERMISTOR_IS(501) // 100k Zonestar thermistor
+  #include "thermistortable_501.h"
+#endif
+#if ANY_THERMISTOR_IS(6) // 100k Epcos thermistor
+  #include "thermistortable_6.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #endif
 
 #if (THERMISTORHEATER_0 == 6) || (THERMISTORHEATER_1 == 6) || (THERMISTORHEATER_2 == 6) || (THERMISTORBED == 6) // 100k Epcos thermistor
@@ -620,6 +643,7 @@ const short temptable_11[][2] PROGMEM = {
          {1021*OVERSAMPLENR,     -27}
 };
 #endif
+<<<<<<< HEAD
 
 #if (THERMISTORHEATER_0 == 13) || (THERMISTORHEATER_1 == 13) || (THERMISTORHEATER_2 == 13) || (THERMISTORBED == 13)
 // Hisens thermistor B25/50 =3950 +/-1%
@@ -650,6 +674,13 @@ const short temptable_13[][2] PROGMEM = {
 {	1008.7*OVERSAMPLENR, 0}
 
 };
+=======
+#if ANY_THERMISTOR_IS(15) // JGAurora A5 thermistor calibration
+  #include "thermistortable_15.h"
+#endif
+#if ANY_THERMISTOR_IS(20) // PT100 with INA826 amp on Ultimaker v2.0 electronics
+  #include "thermistortable_20.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #endif
 
 #if (THERMISTORHEATER_0 == 20) || (THERMISTORHEATER_1 == 20) || (THERMISTORHEATER_2 == 20) || (THERMISTORBED == 20) // PT100 with INA826 amp on Ultimaker v2.0 electronics
@@ -1056,9 +1087,17 @@ const short temptable_1047[][2] PROGMEM = {
 #define _TT_NAME(_N) temptable_ ## _N
 #define TT_NAME(_N) _TT_NAME(_N)
 
+<<<<<<< HEAD
 #ifdef THERMISTORHEATER_0
 # define HEATER_0_TEMPTABLE TT_NAME(THERMISTORHEATER_0)
 # define HEATER_0_TEMPTABLE_LEN (sizeof(HEATER_0_TEMPTABLE)/sizeof(*HEATER_0_TEMPTABLE))
+=======
+#if THERMISTORHEATER_0
+  #define HEATER_0_TEMPTABLE TT_NAME(THERMISTORHEATER_0)
+  #define HEATER_0_TEMPTABLE_LEN COUNT(HEATER_0_TEMPTABLE)
+#elif defined(HEATER_0_USES_THERMISTOR)
+  #error "No heater 0 thermistor table specified"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #else
 # ifdef HEATER_0_USES_THERMISTOR
 #  error No heater 0 thermistor table specified
@@ -1079,9 +1118,17 @@ const short temptable_1047[][2] PROGMEM = {
 # endif
 #endif
 
+<<<<<<< HEAD
 #ifdef THERMISTORHEATER_1
 # define HEATER_1_TEMPTABLE TT_NAME(THERMISTORHEATER_1)
 # define HEATER_1_TEMPTABLE_LEN (sizeof(HEATER_1_TEMPTABLE)/sizeof(*HEATER_1_TEMPTABLE))
+=======
+#if THERMISTORHEATER_1
+  #define HEATER_1_TEMPTABLE TT_NAME(THERMISTORHEATER_1)
+  #define HEATER_1_TEMPTABLE_LEN COUNT(HEATER_1_TEMPTABLE)
+#elif defined(HEATER_1_USES_THERMISTOR)
+  #error "No heater 1 thermistor table specified"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #else
 # ifdef HEATER_1_USES_THERMISTOR
 #  error No heater 1 thermistor table specified
@@ -1091,6 +1138,7 @@ const short temptable_1047[][2] PROGMEM = {
 # endif // HEATER_1_USES_THERMISTOR
 #endif
 
+<<<<<<< HEAD
 //Set the high and low raw values for the heater, this indicates which raw value is a high or low temperature
 #ifndef HEATER_1_RAW_HI_TEMP
 # ifdef HEATER_1_USES_THERMISTOR   //In case of a thermistor the highest temperature results in the lowest ADC value
@@ -1105,6 +1153,23 @@ const short temptable_1047[][2] PROGMEM = {
 #ifdef THERMISTORHEATER_2
 # define HEATER_2_TEMPTABLE TT_NAME(THERMISTORHEATER_2)
 # define HEATER_2_TEMPTABLE_LEN (sizeof(HEATER_2_TEMPTABLE)/sizeof(*HEATER_2_TEMPTABLE))
+=======
+#if THERMISTORHEATER_2
+  #define HEATER_2_TEMPTABLE TT_NAME(THERMISTORHEATER_2)
+  #define HEATER_2_TEMPTABLE_LEN COUNT(HEATER_2_TEMPTABLE)
+#elif defined(HEATER_2_USES_THERMISTOR)
+  #error "No heater 2 thermistor table specified"
+#else
+  #define HEATER_2_TEMPTABLE NULL
+  #define HEATER_2_TEMPTABLE_LEN 0
+#endif
+
+#if THERMISTORHEATER_3
+  #define HEATER_3_TEMPTABLE TT_NAME(THERMISTORHEATER_3)
+  #define HEATER_3_TEMPTABLE_LEN COUNT(HEATER_3_TEMPTABLE)
+#elif defined(HEATER_3_USES_THERMISTOR)
+  #error "No heater 3 thermistor table specified"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 #else
 # ifdef HEATER_2_USES_THERMISTOR
 #  error No heater 2 thermistor table specified
@@ -1114,6 +1179,7 @@ const short temptable_1047[][2] PROGMEM = {
 # endif // HEATER_2_USES_THERMISTOR
 #endif
 
+<<<<<<< HEAD
 //Set the high and low raw values for the heater, this indicates which raw value is a high or low temperature
 #ifndef HEATER_2_RAW_HI_TEMP
 # ifdef HEATER_2_USES_THERMISTOR   //In case of a thermistor the highest temperature results in the lowest ADC value
@@ -1143,6 +1209,106 @@ const short temptable_1047[][2] PROGMEM = {
 #  define HEATER_BED_RAW_HI_TEMP 16383
 #  define HEATER_BED_RAW_LO_TEMP 0
 # endif
+=======
+#if THERMISTORHEATER_4
+  #define HEATER_4_TEMPTABLE TT_NAME(THERMISTORHEATER_4)
+  #define HEATER_4_TEMPTABLE_LEN COUNT(HEATER_4_TEMPTABLE)
+#elif defined(HEATER_4_USES_THERMISTOR)
+  #error "No heater 4 thermistor table specified"
+#else
+  #define HEATER_4_TEMPTABLE NULL
+  #define HEATER_4_TEMPTABLE_LEN 0
+#endif
+
+#ifdef THERMISTORBED
+  #define BEDTEMPTABLE TT_NAME(THERMISTORBED)
+  #define BEDTEMPTABLE_LEN COUNT(BEDTEMPTABLE)
+#elif defined(HEATER_BED_USES_THERMISTOR)
+  #error "No bed thermistor table specified"
+#else
+  #define BEDTEMPTABLE_LEN 0
+#endif
+
+#ifdef THERMISTORCHAMBER
+  #define CHAMBERTEMPTABLE TT_NAME(THERMISTORCHAMBER)
+  #define CHAMBERTEMPTABLE_LEN COUNT(CHAMBERTEMPTABLE)
+#elif defined(HEATER_CHAMBER_USES_THERMISTOR)
+  #error "No chamber thermistor table specified"
+#else
+  #define CHAMBERTEMPTABLE_LEN 0
+#endif
+
+// The SCAN_THERMISTOR_TABLE macro needs alteration?
+static_assert(HEATER_0_TEMPTABLE_LEN < 256 && HEATER_1_TEMPTABLE_LEN < 256 && HEATER_2_TEMPTABLE_LEN < 256 && HEATER_3_TEMPTABLE_LEN < 256 && HEATER_4_TEMPTABLE_LEN < 256 && BEDTEMPTABLE_LEN < 256 && CHAMBERTEMPTABLE_LEN < 256,
+  "Temperature conversion tables over 255 entries need special consideration."
+);
+
+// Set the high and low raw values for the heaters
+// For thermistors the highest temperature results in the lowest ADC value
+// For thermocouples the highest temperature results in the highest ADC value
+#ifndef HEATER_0_RAW_HI_TEMP
+  #ifdef HEATER_0_USES_THERMISTOR
+    #define HEATER_0_RAW_HI_TEMP 0
+    #define HEATER_0_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_0_RAW_HI_TEMP 16383
+    #define HEATER_0_RAW_LO_TEMP 0
+  #endif
+#endif
+#ifndef HEATER_1_RAW_HI_TEMP
+  #ifdef HEATER_1_USES_THERMISTOR
+    #define HEATER_1_RAW_HI_TEMP 0
+    #define HEATER_1_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_1_RAW_HI_TEMP 16383
+    #define HEATER_1_RAW_LO_TEMP 0
+  #endif
+#endif
+#ifndef HEATER_2_RAW_HI_TEMP
+  #ifdef HEATER_2_USES_THERMISTOR
+    #define HEATER_2_RAW_HI_TEMP 0
+    #define HEATER_2_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_2_RAW_HI_TEMP 16383
+    #define HEATER_2_RAW_LO_TEMP 0
+  #endif
+#endif
+#ifndef HEATER_3_RAW_HI_TEMP
+  #ifdef HEATER_3_USES_THERMISTOR
+    #define HEATER_3_RAW_HI_TEMP 0
+    #define HEATER_3_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_3_RAW_HI_TEMP 16383
+    #define HEATER_3_RAW_LO_TEMP 0
+  #endif
+#endif
+#ifndef HEATER_4_RAW_HI_TEMP
+  #ifdef HEATER_4_USES_THERMISTOR
+    #define HEATER_4_RAW_HI_TEMP 0
+    #define HEATER_4_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_4_RAW_HI_TEMP 16383
+    #define HEATER_4_RAW_LO_TEMP 0
+  #endif
+#endif
+#ifndef HEATER_BED_RAW_HI_TEMP
+  #ifdef HEATER_BED_USES_THERMISTOR
+    #define HEATER_BED_RAW_HI_TEMP 0
+    #define HEATER_BED_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_BED_RAW_HI_TEMP 16383
+    #define HEATER_BED_RAW_LO_TEMP 0
+  #endif
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
+#endif
+#ifndef HEATER_CHAMBER_RAW_HI_TEMP
+  #ifdef HEATER_CHAMBER_USES_THERMISTOR
+    #define HEATER_CHAMBER_RAW_HI_TEMP 0
+    #define HEATER_CHAMBER_RAW_LO_TEMP 16383
+  #else
+    #define HEATER_CHAMBER_RAW_HI_TEMP 16383
+    #define HEATER_CHAMBER_RAW_LO_TEMP 0
+  #endif
 #endif
 
 #endif //THERMISTORTABLES_H_

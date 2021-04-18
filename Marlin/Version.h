@@ -30,11 +30,47 @@
  */
 //#define SHORT_BUILD_VERSION "2.0.7.2"
 
+<<<<<<< HEAD
 /**
  * Verbose version identifier which should contain a reference to the location
  * from where the binary was downloaded or the source code was compiled.
  */
 //#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION
+=======
+#if ENABLED(USE_AUTOMATIC_VERSIONING)
+
+  #include "_Version.h"
+
+#else
+
+  /**
+   * Marlin release version identifier
+   */
+  #define SHORT_BUILD_VERSION "1.1.9.1"
+
+  /**
+   * Verbose version identifier which should contain a reference to the location
+   * from where the binary was downloaded or the source code was compiled.
+   */
+  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " (Github)"
+
+  /**
+   * The STRING_DISTRIBUTION_DATE represents when the binary file was built,
+   * here we define this default string as the date where the latest release
+   * version was tagged.
+   */
+  #define STRING_DISTRIBUTION_DATE "2020-06-20"
+
+  /**
+   * Required minimum Configuration.h and Configuration_adv.h file versions.
+   *
+   * You must increment this version number for every significant change such as,
+   * but not limited to: ADD, DELETE RENAME OR REPURPOSE any directive/option on
+   * the configuration files.
+   */
+  #define REQUIRED_CONFIGURATION_H_VERSION 010109
+  #define REQUIRED_CONFIGURATION_ADV_H_VERSION 010109
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 /**
  * The STRING_DISTRIBUTION_DATE represents when the binary file was built,

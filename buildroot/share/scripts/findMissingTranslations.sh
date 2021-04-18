@@ -29,8 +29,13 @@ fi
 
 echo -n "Building list of missing strings..."
 
+<<<<<<< HEAD
 for i in $(awk '/Language_Str/{print $3}' language_en.h); do
   [[ $i == "MSG_CUBED" ]] && continue
+=======
+for i in $(awk '/#ifndef/{print $2}' language_en.h); do
+  [[ $i == "LANGUAGE_EN_H" || $i == "CHARSIZE" ]] && continue
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
   LANG_LIST=""
   for j in $TEST_LANGS; do
     [[ $(grep -c " ${i} " language_${j}.h) -eq 0 ]] && LANG_LIST="$LANG_LIST $j"

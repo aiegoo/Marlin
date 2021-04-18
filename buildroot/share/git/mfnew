@@ -6,7 +6,11 @@
 #
 
 usage() {
+<<<<<<< HEAD
   echo "usage: `basename $0` [1|2|3] [name]" 1>&2
+=======
+  echo "Usage: `basename $0` [1|2] [name]" 1>&2
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 }
 
 [[ $# < 3 && $1 != "-h" && $1 != "--help" ]] || { usage; exit 1; }
@@ -19,12 +23,20 @@ BRANCH=pr_for_$TARG-$(date +"%G-%m-%d_%H.%M.%S")
 # BRANCH can be given as the last argument
 case "$#" in
   1 ) case "$1" in
+<<<<<<< HEAD
         1|2|3) ;;
+=======
+        1|2) ;;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
         *) BRANCH=$1 ;;
       esac
       ;;
   2 ) case "$1" in
+<<<<<<< HEAD
         1|2|3) BRANCH=$2 ;;
+=======
+        1|2) BRANCH=$2 ;;
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
         *) usage ; exit 1 ;;
       esac
       ;;

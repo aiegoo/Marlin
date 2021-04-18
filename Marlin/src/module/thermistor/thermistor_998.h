@@ -27,7 +27,11 @@
   #define DUMMY_THERMISTOR_998_VALUE 25
 #endif
 
+<<<<<<< HEAD:Marlin/src/module/thermistor/thermistor_998.h
 const temp_entry_t temptable_998[] PROGMEM = {
+=======
+const short temptable_998[][2] PROGMEM = {
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790:Marlin/thermistortable_998.h
   { OV(   1), DUMMY_THERMISTOR_998_VALUE },
   { OV(1023), DUMMY_THERMISTOR_998_VALUE }
 };

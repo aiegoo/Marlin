@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
 # exit on first failure
 set -e
 
@@ -10,3 +11,8 @@ eval "${SED} -i '/\(\/\/\)*\([[:blank:]]*\)\(#define\s\+\b${1}\b\).*$/{s//\2\3 $
 eval "${SED} -i '/\(\/\/\)*\([[:blank:]]*\)\(#define\s\+\b${1}\b\).*$/{s//\2\3 ${2}/;h};\${x;/./{x;q0};x;q9}' Marlin/Configuration_adv.h" ||
 eval "echo '#define ${@}' >>Marlin/Configuration_adv.h" ||
 (echo "ERROR: opt_set Can't set or add ${1}" >&2 && exit 9)
+=======
+SED=$(which gsed || which sed)
+
+eval "${SED} -i 's/\(#define \b${1}\b\).*$/\1 ${2}/g' Marlin/Configuration.h"
+>>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
