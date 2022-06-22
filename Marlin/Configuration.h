@@ -35,13 +35,9 @@
  *
  * Advanced settings can be found in Configuration_adv.h
  */
-<<<<<<< HEAD
-#define CONFIGURATION_H_VERSION 020007
-=======
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 #define CONFIGURATION_H_VERSION 010109
->>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 //===========================================================================
 //============================= Getting Started =============================
@@ -115,12 +111,6 @@
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
 #define SHOW_BOOTSCREEN
 
-<<<<<<< HEAD
-// Show the bitmap in Marlin/_Bootscreen.h on startup.
-//#define SHOW_CUSTOM_BOOTSCREEN
-
-// Show the bitmap in Marlin/_Statusscreen.h on the status screen.
-=======
 /**
  * *** VENDORS PLEASE READ ***
  *
@@ -136,7 +126,6 @@
 //#define SHOW_CUSTOM_BOOTSCREEN
 
 // Enable to show the bitmap in Marlin/_Statusscreen.h on the status screen.
->>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 //#define CUSTOM_STATUS_SCREEN_IMAGE
 
 // @section machine
@@ -190,11 +179,7 @@
 #define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
-<<<<<<< HEAD
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
-=======
-#define DEFAULT_NOMINAL_FILAMENT_DIA 3.0
->>>>>>> 1314b31d97bba8cd74c6625c47176d4692f57790
 
 // For Cyclops or any "multi-extruder" that shares a single nozzle.
 //#define SINGLENOZZLE
